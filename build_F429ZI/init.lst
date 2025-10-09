@@ -1,0 +1,151 @@
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccXrewMj.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"init.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/init.c"
+  20              		.section	.text.GPIO_Init_Memory,"ax",%progbits
+  21              		.align	1
+  22              		.global	GPIO_Init_Memory
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	GPIO_Init_Memory:
+  28              	.LFB0:
+   1:Core/Src/init.c **** #include "init.h"
+   2:Core/Src/init.c **** 
+   3:Core/Src/init.c **** void GPIO_Init_Memory (void){
+  29              		.loc 1 3 29 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   4:Core/Src/init.c ****  *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x02UL | 0x04UL; // настройка пина PB7 на �
+  34              		.loc 1 4 2 view .LVU1
+  35 0000 0D4A     		ldr	r2, .L2
+  36 0002 D2F83038 		ldr	r3, [r2, #2096]
+  37              		.loc 1 4 39 is_stmt 0 view .LVU2
+  38 0006 43F00603 		orr	r3, r3, #6
+  39 000a C2F83038 		str	r3, [r2, #2096]
+   5:Core/Src/init.c ****  *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000UL;        // настройка скорости п
+  40              		.loc 1 5 2 is_stmt 1 view .LVU3
+  41 000e 0B4B     		ldr	r3, .L2+4
+  42 0010 D3F80024 		ldr	r2, [r3, #1024]
+  43              		.loc 1 5 39 is_stmt 0 view .LVU4
+  44 0014 42F48042 		orr	r2, r2, #16384
+  45 0018 C3F80024 		str	r2, [r3, #1024]
+   6:Core/Src/init.c ****  *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x4000UL;        // настройка подтягива�
+  46              		.loc 1 6 2 is_stmt 1 view .LVU5
+  47 001c D3F80824 		ldr	r2, [r3, #1032]
+  48              		.loc 1 6 39 is_stmt 0 view .LVU6
+  49 0020 42F48042 		orr	r2, r2, #16384
+  50 0024 C3F80824 		str	r2, [r3, #1032]
+   7:Core/Src/init.c ****  *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x00UL;
+  51              		.loc 1 7 2 is_stmt 1 view .LVU7
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccXrewMj.s 			page 2
+
+
+   8:Core/Src/init.c ****  *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000L;
+  52              		.loc 1 8 2 view .LVU8
+  53 0028 D3F81824 		ldr	r2, [r3, #1048]
+  54              		.loc 1 8 39 is_stmt 0 view .LVU9
+  55 002c 42F40002 		orr	r2, r2, #8388608
+  56 0030 C3F81824 		str	r2, [r3, #1048]
+   9:Core/Src/init.c **** }
+  57              		.loc 1 9 1 view .LVU10
+  58 0034 7047     		bx	lr
+  59              	.L3:
+  60 0036 00BF     		.align	2
+  61              	.L2:
+  62 0038 00300240 		.word	1073885184
+  63 003c 00000240 		.word	1073872896
+  64              		.cfi_endproc
+  65              	.LFE0:
+  67              		.section	.text.GPIO_Init_With_Miself_Macros,"ax",%progbits
+  68              		.align	1
+  69              		.global	GPIO_Init_With_Miself_Macros
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  74              	GPIO_Init_With_Miself_Macros:
+  75              	.LFB1:
+  10:Core/Src/init.c **** 
+  11:Core/Src/init.c **** void GPIO_Init_With_Miself_Macros (void){
+  76              		.loc 1 11 41 is_stmt 1 view -0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+  12:Core/Src/init.c ****     BIT_SET (RCC_AHB1ENR, RCC_GPIOB_EN | RCC_GPIOC_EN);
+  81              		.loc 1 12 5 view .LVU12
+  82 0000 0D4A     		ldr	r2, .L5
+  83 0002 D2F83038 		ldr	r3, [r2, #2096]
+  84 0006 43F00603 		orr	r3, r3, #6
+  85 000a C2F83038 		str	r3, [r2, #2096]
+  13:Core/Src/init.c ****     BIT_SET (GPIOB_MODER, GPIOB_OUTPUT_MODER_BIN_7);
+  86              		.loc 1 13 5 view .LVU13
+  87 000e 0B4B     		ldr	r3, .L5+4
+  88 0010 D3F80024 		ldr	r2, [r3, #1024]
+  89 0014 42F48042 		orr	r2, r2, #16384
+  90 0018 C3F80024 		str	r2, [r3, #1024]
+  14:Core/Src/init.c ****     BIT_SET (GPIOB_OSPEEDR, GPIOB_SPEED_MED_PIN_7);
+  91              		.loc 1 14 5 view .LVU14
+  92 001c D3F80824 		ldr	r2, [r3, #1032]
+  93 0020 42F48042 		orr	r2, r2, #16384
+  94 0024 C3F80824 		str	r2, [r3, #1032]
+  15:Core/Src/init.c ****     BIT_SET (GPIOB_PUPDR, GPIO_OFF);
+  95              		.loc 1 15 5 view .LVU15
+  16:Core/Src/init.c ****     
+  17:Core/Src/init.c ****     BIT_SET (GPIOB_BSRR, GPIOB_PIN_RESET_7);
+  96              		.loc 1 17 5 view .LVU16
+  97 0028 D3F81824 		ldr	r2, [r3, #1048]
+  98 002c 42F40002 		orr	r2, r2, #8388608
+  99 0030 C3F81824 		str	r2, [r3, #1048]
+  18:Core/Src/init.c **** 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccXrewMj.s 			page 3
+
+
+  19:Core/Src/init.c **** 
+  20:Core/Src/init.c **** }
+ 100              		.loc 1 20 1 is_stmt 0 view .LVU17
+ 101 0034 7047     		bx	lr
+ 102              	.L6:
+ 103 0036 00BF     		.align	2
+ 104              	.L5:
+ 105 0038 00300240 		.word	1073885184
+ 106 003c 00000240 		.word	1073872896
+ 107              		.cfi_endproc
+ 108              	.LFE1:
+ 110              		.text
+ 111              	.Letext0:
+ 112              		.file 2 "C:/SysGCC/arm-eabi/arm-none-eabi/include/machine/_default_types.h"
+ 113              		.file 3 "C:/SysGCC/arm-eabi/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccXrewMj.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 init.c
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:21     .text.GPIO_Init_Memory:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:27     .text.GPIO_Init_Memory:00000000 GPIO_Init_Memory
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:62     .text.GPIO_Init_Memory:00000038 $d
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:68     .text.GPIO_Init_With_Miself_Macros:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:74     .text.GPIO_Init_With_Miself_Macros:00000000 GPIO_Init_With_Miself_Macros
+C:\Users\User\AppData\Local\Temp\ccXrewMj.s:105    .text.GPIO_Init_With_Miself_Macros:00000038 $d
+
+NO UNDEFINED SYMBOLS
